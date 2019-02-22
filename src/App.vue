@@ -2,6 +2,7 @@
   <div>
     <h1>Countries</h1>
     <div class="main-container">
+      <input type="text" v-model="search" placeholder="search for country..." v-on:keyup="searchForCountry">
       <countries-select :countries = "countries"></countries-select>
       <country-details :country = "selectedCountry"></country-details>
     </div>
@@ -30,9 +31,20 @@ export default {
       this.selectedCountry = this.countries[index];
   })
 },
+
   components: {
     "countries-select": CountriesSelect,
     "country-details": CountryDetails
+  },
+
+methods: {
+    searchForCountry: function(){
+      let foundCountry = this.countries.find((country) => {
+        // return country.name.toLowerCase() === this.search.toLowerCase()
+        return country.name.toLowerCase().indexOf(this.search.toLowerCase()) > -1
+      })
+      this.selectedCountry = foundCountry
+    }
   }
 }
 </script>
