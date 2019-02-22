@@ -2,7 +2,7 @@
   <div>
     <h1>Countries</h1>
     <div class="main-container">
-      <input type="text" v-model="search" placeholder="search for country..." v-on:keyup="searchForCountry">
+      <input id="search-bar" type="text" v-model="search" placeholder="search for country..." v-on:keyup="searchForCountry">
       <countries-select :countries = "countries"></countries-select>
       <country-details :country = "selectedCountry"></country-details>
     </div>
@@ -50,8 +50,20 @@ methods: {
 </script>
 
 <style lang="css" scoped>
-  .main-container {
+
+  #search-bar {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    width:300px;height:20px;
+    margin-left: 50px;
+
+  }
+
+  h1 {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    background-color: black;
+    color: white
   }
 </style>

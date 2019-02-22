@@ -29,4 +29,12 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
+
+#country-selected {
+  margin-left: 50px;
+  margin-top: 20px;
+}
+
+
 </style>
